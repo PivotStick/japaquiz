@@ -1,5 +1,5 @@
 <script>
-    import { slide, scale, fly } from "svelte/transition";
+    import { slide } from "svelte/transition";
     import kana from "../kana";
     import Filters from "./Filters.svelte";
     import MultiQuizz from "./MultiQuizz.svelte";

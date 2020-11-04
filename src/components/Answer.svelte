@@ -7,17 +7,19 @@
 </script>
 
 {#if answer}
-    {#if answer.isCorrect}
-    <SlideText shouldSlide={animate}>{answer.kana} ✔</SlideText>
-    {:else}
-    <SlideText shouldSlide={animate}>{answer.kana} ≠ {answer.userInput} ❌ 『{answer.correctAnswer}』</SlideText>
-    {/if}
+    <SlideText shouldSlide={animate}>
+        {#if answer.isCorrect}
+        {answer.character} ✔
+        {:else}
+        <span>『{answer.correctAnswer}』</span>{answer.character} ≠ {answer.userInput} ❌
+        {/if}
+        {#if answer.details}『{answer.details}』{/if}
+    </SlideText>
 {:else}
     <h1 out:slide>Your previous answers are displayed here.</h1>
 {/if}
 
 <style lang="scss">
-    h1 {
-        text-align: center;
-    }
+    h1 { text-align: center }
+    span { color: green }
 </style>

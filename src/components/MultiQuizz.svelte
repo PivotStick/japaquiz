@@ -40,7 +40,8 @@ import Score from "./Score.svelte";
 
 <Score {winCount} {failCount} />
 <Quizz
-    kana={current.character}
+    character={current.character}
+    details={current.details}
     correctAnswer={current.answer}
     on:answer={handleAnswer}
 

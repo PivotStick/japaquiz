@@ -6,8 +6,9 @@
 
     export let heading = "ひらがな";
     export let shouldFilter = true;
-    export let kana;
+    export let character;
     export let correctAnswer;
+    export let details;
 
     let userInput = "";
     let showHint = false;
@@ -16,7 +17,7 @@
     const handleSubmit = () => {
         if (!userInput) return;
 
-        const result = { userInput, kana, correctAnswer };
+        const result = { userInput, character, correctAnswer, details };
 
         if (correctAnswer instanceof Array)
             result.isCorrect = correctAnswer.includes(userInput);
@@ -57,7 +58,7 @@
 {/if}
 <h1 class="quizz__heading">{heading}</h1>
 <article class="quizz">
-    <h2 class="quizz__kana" on:click={handleShowHint}>{kana}</h2>
+    <h2 class="quizz__kana" on:click={handleShowHint}>{character}</h2>
     <form class="quizz__form" on:submit|preventDefault={handleSubmit}>
         <input bind:this={input} class="quizz__input" type="text" value={userInput} on:input={handleChange}>
         <button class="quizz__button" type="submit">次「つぎ」</button>

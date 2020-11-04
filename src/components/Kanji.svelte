@@ -1,4 +1,5 @@
 <script>
+    import { slide, scale } from "svelte/transition";
     import kanji from "../kanji";
     import Filters from "./Filters.svelte";
     import MultiQuizz from "./MultiQuizz.svelte";
@@ -23,7 +24,7 @@
     $: characters = getCharacters(wanted);
 </script>
 
-<main>
+<main transition:slide>
     <Filters bind:group={wanted} {choices} />
     <MultiQuizz
         heading="漢字"

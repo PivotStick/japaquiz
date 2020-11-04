@@ -1,4 +1,5 @@
 <script>
+    import { slide, scale, fly } from "svelte/transition";
     import kana from "../kana";
     import Filters from "./Filters.svelte";
     import MultiQuizz from "./MultiQuizz.svelte";
@@ -23,7 +24,7 @@
     $: characters = getCharacters(wanted);
 </script>
 
-<main>
+<main transition:slide>
     <Filters bind:group={wanted} {choices} />
 	<MultiQuizz
 		heading="かな"

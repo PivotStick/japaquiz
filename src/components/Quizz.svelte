@@ -92,6 +92,7 @@
 
         &__heading {
             font-size: 3em;
+            text-align: center;
         }
 
         &__kana {

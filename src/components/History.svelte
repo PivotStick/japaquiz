@@ -19,7 +19,7 @@
 {/if}
 {#if !hidden}
 {#each rest as answer}
-<Answer animate={false} answer={answer} />
+<Answer answer={answer} />
 {/each}
 {/if}
 

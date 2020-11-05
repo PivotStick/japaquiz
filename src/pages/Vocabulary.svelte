@@ -17,7 +17,7 @@
             result.push(...words);
         }
         
-        return result;
+        characters = result;
     };
 
     const firstWords = Object.keys(vocabulary)[0];

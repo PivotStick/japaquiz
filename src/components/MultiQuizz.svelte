@@ -12,6 +12,8 @@ import Score from "./Score.svelte";
     let failCount = 0;
     let winCount = 0;
     let answers = [];
+    let isRandom = true;
+    let currentIndex = 0;
 
     const getRandomCharacter = () => {
         const randomNumber = Math.random() * (characters.length - 1);
@@ -32,20 +34,52 @@ import Score from "./Score.svelte";
             answers.pop();
 
         answers = [detail, ...answers];
-        current = getRandomCharacter();
+
+        if (!isRandom) {
+            const lastIndex = characters.length - 1;
+            if (++currentIndex > lastIndex)
+                currentIndex = 0;
+            
+            current = characters[currentIndex];
+        } else
+            current = getRandomCharacter();
+    };
+
+    const handleReset = () => {
+        winCount = 0;
+        failCount = 0;
+        answers = [];
+    };
+
+    const handleMode = () => {
+        isRandom = !isRandom;
+
+        if (!isRandom) {
+            currentIndex = 0;
+            current = characters[currentIndex];
+        } else {
+            current = getRandomCharacter();
+        }
     };
 
     let current = getRandomCharacter();
 </script>
 
-<Score {winCount} {failCount} />
+<button on:click={handleMode}>mode "{isRandom ? "Random" : "In Order"}"</button>
+<Score {winCount} {failCount} on:reset={handleReset}/>
 <Quizz
-    character={current.character}
-    details={current.details}
-    correctAnswer={current.answer}
     on:answer={handleAnswer}
 
+    {...current}
     {heading}
     {shouldFilter}
 />
 <History data={answers} />
+
+<style lang="scss">
+    button {
+        position: fixed;
+
+        bottom: 1em;
+    }
+</style>

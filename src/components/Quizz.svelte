@@ -6,9 +6,9 @@
 
     export let heading = "ひらがな";
     export let shouldFilter = true;
-    export let character;
-    export let correctAnswer;
-    export let details;
+    export let word;
+    export let answer;
+    export let meaning = undefined;
 
     let userInput = "";
     let showHint = false;
@@ -17,12 +17,12 @@
     const handleSubmit = () => {
         if (!userInput) return;
 
-        const result = { userInput, character, correctAnswer, details };
+        const result = { userInput, word, answer, meaning };
 
-        if (correctAnswer instanceof Array)
-            result.isCorrect = correctAnswer.includes(userInput);
+        if (answer instanceof Array)
+            result.isCorrect = answer.includes(userInput);
         else
-            result.isCorrect = userInput === correctAnswer;
+            result.isCorrect = userInput === answer;
 
         dispatch("answer", result);
         userInput = "";
@@ -45,20 +45,20 @@
 </script>
 {#if showHint}
 <div transition:scale class="quizz__hint">
-    {#if correctAnswer instanceof Array}
+    {#if answer instanceof Array}
     <ul>
-        {#each correctAnswer as answer}
-            <li><h1>• {answer}</h1></li>
+        {#each answer as answerItem}
+            <li><h1>• {answerItem}</h1></li>
         {/each}
     </ul>
     {:else}
-    <h1>{correctAnswer}</h1>
+    <h1>{answer}</h1>
     {/if}
 </div>
 {/if}
 <h1 class="quizz__heading">{heading}</h1>
 <article class="quizz">
-    <h2 class="quizz__kana" on:click={handleShowHint}>{character}</h2>
+    <h2 class="quizz__kana" on:click={handleShowHint}>{word || "°"}</h2>
     <form class="quizz__form" on:submit|preventDefault={handleSubmit}>
         <input bind:this={input} class="quizz__input" type="text" value={userInput} on:input={handleChange}>
         <button class="quizz__button" type="submit">次「つぎ」</button>
@@ -99,8 +99,9 @@
         &__kana {
             cursor: pointer;
 
-            font-size: 8em;
+            font-size: 6em;
             user-select: none;
+            text-align: center;
             transition: transform 200ms;
 
             &:hover { transform: scale(1.1) }
@@ -112,6 +113,8 @@
             flex-direction: column;
 
             align-items: center;
+
+            margin-top: 1em;
         }
 
         &__button {

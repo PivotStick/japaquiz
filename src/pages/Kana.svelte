@@ -1,13 +1,14 @@
 <script>
     import { slide } from "svelte/transition";
     import kana from "../kana";
-    import Filters from "./Filters.svelte";
-    import MultiQuizz from "./MultiQuizz.svelte";
+    import Filters from "../components/Filters.svelte";
+    import MultiQuizz from "../components/MultiQuizz.svelte";
 
-    let choices = Object.keys(kana);
-    let wanted = [choices[0]];
+    let characters = [];
 
-    const getCharacters = filter => {
+    const handleChange = ({ detail: filter }) => {
+        if (!filter) return;
+
         const result = [];
         for (const type in kana) {
             if (!filter.includes(type)) continue;
@@ -16,16 +17,15 @@
             result.push(...chars);
         }
         
-        return result;
+        characters = result;
     };
 
-    let characters = getCharacters(wanted);
-
-    $: characters = getCharacters(wanted);
+    const firstKana = Object.keys(kana)[0];
+    characters = kana[firstKana];
 </script>
 
 <main transition:slide>
-    <Filters bind:group={wanted} {choices} />
+    <Filters choicesObject={kana} on:change={handleChange} />
 	<MultiQuizz
 		heading="かな"
         shouldFilter={false}

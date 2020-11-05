@@ -9,11 +9,11 @@
 {#if answer}
     <SlideText shouldSlide={animate}>
         {#if answer.isCorrect}
-        {answer.character} ✔
+        {answer.word} ✔
         {:else}
-        <span>『{answer.correctAnswer}』</span>{answer.character} ≠ {answer.userInput} ❌
+        <span>『{answer.answer}』</span>{answer.word} ≠ {answer.userInput} ❌
         {/if}
-        {#if answer.details}『{answer.details}』{/if}
+        {#if answer.meaning}『{answer.meaning}』{/if}
     </SlideText>
 {:else}
     <h1 out:slide>Your previous answers are displayed here.</h1>

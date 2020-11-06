@@ -81,5 +81,6 @@ import Score from "./Score.svelte";
         position: fixed;
 
         bottom: 1em;
+        left: 1em;
     }
 </style>

@@ -5,7 +5,7 @@
 
     import Nav from "./components/Nav.svelte";
 
-    let type = "kana";
+    let type = "numbers";
 
     const pages = {
         kana: { page: Kana, name: "Kana" },
@@ -34,7 +34,11 @@
 <svelte:component this={page} />
 {/if}
 <div class="youtube">
-    <a class="youtube__link" target="_blank" href="https://www.youtube.com/channel/UChFfLNTK64xQj7NscGmLLLg">
+    <a
+        class="youtube__link"
+        target="_blank"
+        href="https://www.youtube.com/watch?v=Hs8oR3xDokA&list=PLC8UWZPWDAiW-v0OtWMAHdnqDwx7kQ8K-&index=1&t=0"
+    >
         Julien Fontanier
     </a>
 </div>
@@ -51,11 +55,16 @@
             display: block;
 
             text-decoration: none;
-            padding: 1em 2em;
+            padding: .5em 2em;
             border-radius: 2em;
 
+            transform-origin: right bottom;
             background-color: #ff3e00;
             color: white;
+
+            transition: transform 200ms;
+
+            &:hover { transform: scale(1.2) }
         }
     }
 </style>

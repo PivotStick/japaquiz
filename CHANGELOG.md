@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.2] - 2020-11-05
+### Added
+- You can now train to write japanese number between **1** to **9 999**!
+
+### Changed
+- Code factorization, things are now clickable :)
+- Link to Julien Fontanier has changed to his course introduction
+
+
 ## [0.0.1] - 2020-11-05
 ### Added
 - New pages! **"Numbers"** & **"Vocabulary"**!

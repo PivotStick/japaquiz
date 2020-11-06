@@ -4,10 +4,11 @@
 
     export let answer;
     export let animate = true;
+    export let hover = true;
 </script>
 
 {#if answer}
-    <SlideText shouldSlide={animate}>
+    <SlideText {hover} shouldSlide={animate}>
         {#if answer.isCorrect}
         {answer.word} ✔
         {:else}

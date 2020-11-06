@@ -58,7 +58,7 @@
 {/if}
 <h1 class="quizz__heading">{heading}</h1>
 <article class="quizz">
-    <h2 class="quizz__kana" on:click={handleShowHint}>{word || "°"}</h2>
+    <h2 class="quizz__kana --clickable" on:click={handleShowHint}>{word || "°"}</h2>
     <form class="quizz__form" on:submit|preventDefault={handleSubmit}>
         <input bind:this={input} class="quizz__input" type="text" value={userInput} on:input={handleChange}>
         <button class="quizz__button" type="submit">次「つぎ」</button>
@@ -97,15 +97,8 @@
         }
 
         &__kana {
-            cursor: pointer;
-
             font-size: 6em;
-            user-select: none;
             text-align: center;
-            transition: transform 200ms;
-
-            &:hover { transform: scale(1.1) }
-            &:active { transform: scale(0.9) }
         }
 
         &__form {

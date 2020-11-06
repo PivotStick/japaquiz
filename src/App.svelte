@@ -5,7 +5,7 @@
 
     import Nav from "./components/Nav.svelte";
 
-    let type = "numbers";
+    let type = "kana";
 
     const pages = {
         kana: { page: Kana, name: "Kana" },

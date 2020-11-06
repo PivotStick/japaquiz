@@ -1,6 +1,7 @@
 <script>
     import { slide } from "svelte/transition";
     import { createEventDispatcher } from "svelte";
+    import Button from "./Button.svelte";
 
     export let currentLink;
     export let links = [];
@@ -18,9 +19,9 @@
 </script>
 
 <nav class="nav">
-    <button class="nav__button" on:click={() => isVisible = !isVisible}>
-        {isVisible ? "Close" : "Menu"}
-    </button>
+    <Button on:click={() => isVisible = !isVisible}>
+        {isVisible ? "Fermer" : "Menu"}
+    </Button>
 {#if isVisible}
     <ul transition:slide class="nav__links">
         {#each filteredLinks as { name, link }}
@@ -34,15 +35,10 @@
     .nav {
         position: fixed;
 
+        z-index: 2000;
+
         top: 1em;
         right: 1em;
-
-        &__button {
-            position: absolute;
-
-            top: 0;
-            right: 0;
-        }
 
         &__links {
             position: absolute;
@@ -67,6 +63,7 @@
 
             border: .15em solid transparent;
             border-radius: .5em;
+            width: max-content;
 
             transform-origin: center right;
 

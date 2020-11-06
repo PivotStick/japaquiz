@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.3] - 2020-11-05
+### Added
+- A new component for the button is now created
+
+### Changed
+- The numbers page is now beautiful!
+
+### Fixed
+- A bug with the japanese number generated is now fixed. The correct japanese number will now be generated!
+
+
 ## [0.0.2] - 2020-11-05
 ### Added
 - You can now train to write japanese number between **1** to **9 999**!

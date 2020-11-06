@@ -28,9 +28,6 @@ function getKansuji(number) {
         const firstDigit = num.toString()[0];
         const unit = (num / firstDigit).toString();
 
-        const shouldSkip = firstDigit === "1" && num > 1;
-        if (shouldSkip) continue;
-
         const first = numbers.find(v => v.meaning === firstDigit);
         const second = numbers.find(v => unit >= 10 ? v.meaning === unit : false);
 
@@ -38,6 +35,9 @@ function getKansuji(number) {
 
         for (const [i, char] of [first, second].entries())
             if (char !== undefined) {
+                const shouldSkip = i === 0 && firstDigit === "1" && num > 1;
+                if (shouldSkip) continue;
+
                 const isArray = char.answer instanceof Array;
                 const kana = isArray ? char.answer[1] : char.answer;
 

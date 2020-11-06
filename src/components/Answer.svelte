@@ -17,7 +17,7 @@
         {#if answer.meaning}『{answer.meaning}』{/if}
     </SlideText>
 {:else}
-    <h1 out:slide>Your previous answers are displayed here.</h1>
+    <h1 out:slide>Vos dernières réponses seront affichées ici.</h1>
 {/if}
 
 <style lang="scss">

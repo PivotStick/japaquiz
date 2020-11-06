@@ -1,6 +1,7 @@
 <script>
     import { slide } from "svelte/transition";
     import { exceptions, getKansuji } from "../services/numbers";
+    import Button from "./Button.svelte";
 
     let showAccents = false;
 
@@ -9,9 +10,11 @@
     const replaceFunction = m => `<span class="accents__highlight">${m}</span>`;
 </script>
 
-<button on:click={() => showAccents = !showAccents}>
-    {showAccents ? "Hide" : "Show"} Accents
-</button>
+<div class="accents__button">
+    <Button on:click={() => showAccents = !showAccents}>
+        {showAccents ? "Cacher" : "Montrer"} les accents
+    </Button>
+</div>
 {#if showAccents}
 <ul class="accents" transition:slide>
     <a class="accents__link --clickable" href="https://youtu.be/FZEA66Nj95c?t=522" target="_blank">
@@ -63,6 +66,13 @@
             transform-origin: left center;
             font-size: 1.5em;
             margin-bottom: .5em;
+        }
+
+        &__button {
+            position: fixed;
+
+            top: 1em;
+            left: 1em;
         }
     }
 

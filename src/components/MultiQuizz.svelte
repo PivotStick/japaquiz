@@ -1,4 +1,5 @@
 <script>
+import Button from "./Button.svelte";
 import History from "./History.svelte";
 import Quizz from "./Quizz.svelte";
 
@@ -65,7 +66,11 @@ import Score from "./Score.svelte";
     let current = getRandomCharacter();
 </script>
 
-<button on:click={handleMode}>mode "{isRandom ? "Random" : "In Order"}"</button>
+<div class="btn">
+    <Button on:click={handleMode}>
+        mode "{isRandom ? "Random" : "In Order"}"
+    </Button>
+</div>
 <Score {winCount} {failCount} on:reset={handleReset}/>
 <Quizz
     on:answer={handleAnswer}
@@ -77,7 +82,7 @@ import Score from "./Score.svelte";
 <History data={answers} />
 
 <style lang="scss">
-    button {
+    .btn {
         position: fixed;
 
         bottom: 1em;

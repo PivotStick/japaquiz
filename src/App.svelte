@@ -5,11 +5,11 @@
 
     import Nav from "./components/Nav.svelte";
 
-    let type = "kana";
+    let type = "numbers";
 
     const pages = {
-        kana: { page: Kana, name: "Kana" },
-        vocabulary: { page: Vocabulary, name: "Vocabulary" },
+        kana: { page: Kana, name: "Les Kana" },
+        vocabulary: { page: Vocabulary, name: "Le Vocabulaire" },
         numbers: { page: Numbers, name: "Les Nombres" },
     };
 

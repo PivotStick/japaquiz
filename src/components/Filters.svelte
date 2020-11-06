@@ -1,6 +1,7 @@
 <script>
     import { slide } from "svelte/transition";
     import { createEventDispatcher, onMount } from "svelte";
+    import Button from "./Button.svelte";
 
     export let choicesObject = {};
 
@@ -34,7 +35,9 @@
 </script>
 
 <div class="filters">
-    <button class="filters__btn" on:click={() => showFilters = !showFilters}>Show Filters</button>
+    <Button on:click={() => showFilters = !showFilters}>
+        Show Filters
+    </Button>
     {#if showFilters}
     <ul transition:slide class="filters__items">
         {#each choices as { choice, selected }, index}

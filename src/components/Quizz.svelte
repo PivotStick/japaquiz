@@ -111,6 +111,8 @@
         }
 
         &__button {
+            cursor: pointer;
+
             border: none;
             background-color: #ff3e00;
             color: white;

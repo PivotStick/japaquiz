@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.5] - 2020-11-07
+### Added
+- It is now possible to choose de maximum number generated in the *"number page"*
+
+### Changed
+- Some details has changed, the "mode" button is now in french, and each page has a white background so the page transition doesn't look weird
+
+
 ## [0.0.4] - 2020-11-07
 ### Added
 - All hiragana and katakana combinations added

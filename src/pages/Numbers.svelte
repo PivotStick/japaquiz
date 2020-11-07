@@ -11,7 +11,8 @@
     let winCount = 0;
     let failCount = 0;
     let answers = [];
-    let randomNumber = getRandomNumber();
+    let max = 9999;
+    let randomNumber = getRandomNumber(max);
 
     const handleSubmit = () => {
         const possibleAnswers = Object.values(answer);
@@ -36,7 +37,7 @@
         ];
 
         userInput = "";
-        randomNumber = getRandomNumber();
+        randomNumber = getRandomNumber(max);
     };
 
     const handleChange = e => {
@@ -50,12 +51,15 @@
         answers = [];
     };
 
+    $: randomNumber = getRandomNumber(max);
     $: answer = getKansuji(randomNumber);
 </script>
 
 <main transition:slide>
     <NumberAccents />
     <Score {winCount} {failCount} on:reset={handleReset} />
+    <h2>De 1 à {max}</h2>
+    <input type="range" min="2" max="9999" bind:value={max}>
     {#if showHint}
         <div class="number__hint" transition:scale>
             <h2>Kanji・{answer.kanji}</h2>

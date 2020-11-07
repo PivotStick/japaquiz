@@ -52,8 +52,8 @@ function getKansuji(number) {
     };
 };
 
-function getRandomNumber() {
-    const randomFloat = Math.random() * 9999;
+function getRandomNumber(max = 9999) {
+    const randomFloat = Math.random() * max;
     const randomInt = Math.ceil(randomFloat);
 
     return randomInt;

@@ -62,7 +62,7 @@
 
 <div class="btn">
     <Button on:click={handleMode}>
-        Mode "{isRandom ? 'Random' : 'In Order'}"
+        Mode "{isRandom ? "Aléatoire" : "Dans l'Ordre" }"
     </Button>
 </div>
 <Score {winCount} {failCount} on:reset={handleReset} />

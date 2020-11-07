@@ -35,6 +35,7 @@
 <style lang="scss">
     .accents {
         position: fixed;
+        z-index: 25;
 
         bottom: 1em;
         left: 1em;
@@ -43,6 +44,7 @@
         border-radius: 1em;
 
         box-shadow: 0 .5em 1em rgba(black, 0.25);
+        background-color: white;
         color: #333;
 
         display: grid;

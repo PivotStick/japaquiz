@@ -35,7 +35,7 @@
     .nav {
         position: fixed;
 
-        z-index: 2000;
+        z-index: 25;
 
         top: 1em;
         right: 1em;

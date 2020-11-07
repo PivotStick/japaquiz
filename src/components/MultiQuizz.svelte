@@ -1,10 +1,9 @@
 <script>
-import Button from "./Button.svelte";
-import History from "./History.svelte";
-import Quizz from "./Quizz.svelte";
+    import Button from "./Button.svelte";
+    import History from "./History.svelte";
+    import Quizz from "./Quizz.svelte";
 
-import Score from "./Score.svelte";
-
+    import Score from "./Score.svelte";
 
     export let characters = [];
     export let shouldFilter = true;
@@ -26,24 +25,19 @@ import Score from "./Score.svelte";
     const handleAnswer = ({ detail }) => {
         const { isCorrect } = detail;
 
-        if (isCorrect)
-            winCount++;
-        else
-            failCount++;
-        
-        if (answers.length > 9)
-            answers.pop();
+        if (isCorrect) winCount++;
+        else failCount++;
+
+        if (answers.length > 9) answers.pop();
 
         answers = [detail, ...answers];
 
         if (!isRandom) {
             const lastIndex = characters.length - 1;
-            if (++currentIndex > lastIndex)
-                currentIndex = 0;
-            
+            if (++currentIndex > lastIndex) currentIndex = 0;
+
             current = characters[currentIndex];
-        } else
-            current = getRandomCharacter();
+        } else current = getRandomCharacter();
     };
 
     const handleReset = () => {
@@ -68,17 +62,11 @@ import Score from "./Score.svelte";
 
 <div class="btn">
     <Button on:click={handleMode}>
-        mode "{isRandom ? "Random" : "In Order"}"
+        Mode "{isRandom ? 'Random' : 'In Order'}"
     </Button>
 </div>
-<Score {winCount} {failCount} on:reset={handleReset}/>
-<Quizz
-    on:answer={handleAnswer}
-
-    {...current}
-    {heading}
-    {shouldFilter}
-/>
+<Score {winCount} {failCount} on:reset={handleReset} />
+<Quizz on:answer={handleAnswer} {...current} {heading} {shouldFilter} />
 <History data={answers} />
 
 <style lang="scss">

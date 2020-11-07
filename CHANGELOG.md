@@ -3,7 +3,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.0.3] - 2020-11-05
+## [0.0.4] - 2020-11-07
+### Added
+- All hiragana and katakana combinations added
+- New vocabularies for **country names** & **domestic animals**!
+
+### Changed
+- Some modals now have a white background and are displayed in front of everything (even if there is an animation)
+- **"kana.js"** no longer exists and is now a folder with separated files.
+
+
+## [0.0.3] - 2020-11-06
 ### Added
 - A new component for the button is now created
 

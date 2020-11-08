@@ -1,4 +1,4 @@
-export default [
+export const katakanaAccents = [
     { word: "ガ",   answer: "ga" },
     { word: "ギ",   answer: "gi" },
     { word: "グ",   answer: "gu" },
@@ -28,4 +28,9 @@ export default [
     { word: "プ",   answer: "pu" },
     { word: "ペ",   answer: "pe" },
     { word: "ポ",   answer: "po" },
-]
+];
+
+export default {
+    list: katakanaAccents,
+    ref: "https://www.youtube.com/watch?v=LlyGGMlEydM&t=0",
+}

@@ -1,4 +1,4 @@
-import numbers from "../vocabulary/numbers";
+import { numbers } from "../vocabulary/numbers";
 
 const exceptions = {
     "300": { second: "ビャク" },

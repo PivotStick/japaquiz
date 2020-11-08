@@ -1,4 +1,4 @@
-export default [
+export const hiragana = [
     { word: "あ",   answer: "a" },
     { word: "い",   answer: "i" },
     { word: "う",   answer: "u" },
@@ -55,4 +55,9 @@ export default [
     { word: "を",   answer: "wo" },
 
     { word: "ん",   answer: "n" },
-]
+];
+
+export default {
+    list: hiragana,
+    ref: "https://www.youtube.com/watch?v=_PCJnq_-oT8&t=0",
+}

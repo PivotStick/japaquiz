@@ -1,7 +1,7 @@
-import hiragana from "./hiragana";
-import hiraganaAccents from "./hiraganaAccents";
-import katakana from "./katakana";
-import katakanaAccents from "./katakanaAccents";
+import { hiragana } from "./hiragana";
+import { hiraganaAccents } from "./hiraganaAccents";
+import { katakana } from "./katakana";
+import { katakanaAccents } from "./katakanaAccents";
 
 function combineSmallKanaToKana({ kana, smallKana }) {
     const kanaWithoutEnd = kana.answer.substring(0, kana.answer.length - 1);
@@ -15,7 +15,7 @@ function combineSmallKanaToKana({ kana, smallKana }) {
     return { word, answer };
 };
 
-function combine(kanaList, smallKanaList) {
+function combine(kanaList, smallKanaList, ref = "") {
     const filteredKanaList = kanaList.filter(kana => {
         const answerLength = kana.answer.length;
         const lastSyllable = kana.answer[answerLength - 1];
@@ -31,7 +31,10 @@ function combine(kanaList, smallKanaList) {
             results.push(combination);
         }
 
-    return results;
+    return {
+        list: results,
+        ref,
+    };
 };
 
 const smallHiragana = [
@@ -48,6 +51,7 @@ const smallKatakana = [
 
 const allHiragana = [...hiragana, ...hiraganaAccents];
 const allKatakana = [...katakana, ...katakanaAccents];
+const linkRef = "https://www.youtube.com/watch?v=VjkPz2ZhB6I&t=0";
 
-export const hiraganaCombinations = combine(allHiragana, smallHiragana);
-export const katakanaCombinations = combine(allKatakana, smallKatakana);
+export const hiraganaCombinations = combine(allHiragana, smallHiragana, linkRef);
+export const katakanaCombinations = combine(allKatakana, smallKatakana, linkRef);

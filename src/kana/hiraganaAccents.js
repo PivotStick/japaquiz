@@ -1,4 +1,4 @@
-export default [
+export const hiraganaAccents = [
     { word: "が",   answer: "ga" },
     { word: "ぎ",   answer: "gi" },
     { word: "ぐ",   answer: "gu" },
@@ -28,4 +28,9 @@ export default [
     { word: "ぷ",   answer: "pu" },
     { word: "ぺ",   answer: "pe" },
     { word: "ぽ",   answer: "po" },
-]
+];
+
+export default {
+    list: hiraganaAccents,
+    ref: "https://www.youtube.com/watch?v=LlyGGMlEydM&t=0",
+};

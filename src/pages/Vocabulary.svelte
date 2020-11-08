@@ -13,7 +13,7 @@
         for (const type in vocabulary) {
             if (!filter.includes(type)) continue;
 
-            const words = vocabulary[type];
+            const words = vocabulary[type].list;
             result.push(...words);
         }
         
@@ -21,7 +21,7 @@
     };
 
     const firstWords = Object.keys(vocabulary)[0];
-    $: characters = vocabulary[firstWords];
+    $: characters = vocabulary[firstWords].list;
 </script>
 
 <main transition:slide>

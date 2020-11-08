@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.6] - 2020-11-08
+### Added
+- There is now link references for every vocabulary and kana
+- Kana section is now finished, all content is here, the new Katakana combinations is now available!
+
+### Changed
+- The filters are reordered
+
+
 ## [0.0.5] - 2020-11-07
 ### Added
 - It is now possible to choose de maximum number generated in the *"number page"*

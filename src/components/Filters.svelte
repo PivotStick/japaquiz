@@ -11,6 +11,7 @@
     let showFilters = false;
     let choices = possibilities.map((choice, i) => ({
         choice,
+        ref: choicesObject[choice].ref,
         selected: i === 0,
     }));
 
@@ -41,12 +42,22 @@
     </Button>
     {#if showFilters}
         <ul transition:slide class="filters__items">
-            {#each choices as { choice, selected }, index}
-                <li
-                    class="filters__item"
-                    class:-selected={selected}
-                    on:click={handleClick(index)}>
-                    {choice}
+            {#each choices as { choice, selected, ref }, index}
+                <li class="filters__item">
+                    <a
+                        class="filters__item--link"
+                        class:disabled={ref === ""}
+                        target="_blank"
+                        href={ref}>
+                        #
+                    </a>
+                    <div
+                        class="filters__item--button"
+                        on:click={handleClick(index)}
+                        class:-selected={selected}
+                    >
+                        {choice}
+                    </div>
                 </li>
             {/each}
         </ul>
@@ -71,35 +82,55 @@
         }
 
         &__item {
-            cursor: pointer;
 
-            user-select: none;
-            background-color: rgba(orange, 0.25);
-            border: 0.15em solid transparent;
-
-            padding: 0.25em 1em;
-            border-radius: 0.25em;
-            transform-origin: center left;
-
-            transition-duration: 200ms;
-            transition-property: background-color border-color transform color;
-
-            &:hover {
-                background-color: transparent;
-                border-color: #ff3e00;
-                transform: scale(1.05);
-            }
+            display: flex;
+            align-items: center;
 
             &:not(:last-child) { margin-bottom: 0.5em; }
-            &:active { transform: scale(1); }
 
-            &.-selected {
-                background-color: #ff3e00;
-                color: white;
+            &--button {
+                cursor: pointer;
+
+                user-select: none;
+                background-color: rgba(orange, 0.25);
+                border: 0.15em solid transparent;
+
+                flex: 1;
+
+                padding: 0.25em 1em;
+                border-radius: 0.25em;
+                transform-origin: center left;
+
+                transition-duration: 200ms;
+                transition-property:
+                    background-color
+                    border-color
+                    transform
+                    color;
+
+                &:hover {
+                    background-color: transparent;
+                    border-color: #ff3e00;
+                    transform: scale(1.05);
+                }
+
+                &:active { transform: scale(1); }
+
+                &.-selected {
+                    background-color: #ff3e00;
+                    color: white;
+                }
             }
 
-            &:first-child { transform-origin: left top }
-            &:last-child { transform-origin: left bottom }
+            &--link {
+                color: #ff3e00;
+                margin-right: 1em;
+
+                &.disabled {
+                    pointer-events: none;
+                    color: #DDD;
+                }
+            }
         }
     }
 </style>

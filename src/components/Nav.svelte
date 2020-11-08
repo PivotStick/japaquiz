@@ -13,8 +13,6 @@
         dispatch("change", { link });
     };
 
-    $: filteredLinks = links.filter(({ link }) => link !== currentLink);
-
     let isVisible = false;
 </script>
 
@@ -24,8 +22,14 @@
     </Button>
 {#if isVisible}
     <ul transition:slide class="nav__links">
-        {#each filteredLinks as { name, link }}
-        <li class="nav__link" on:click={handleClick(link)}>{name}</li>
+        {#each links as { name, link }}
+        <li
+            class="nav__link"
+            class:current={link === currentLink}
+            on:click={handleClick(link)}
+        >
+            {name}
+        </li>
         {/each}
     </ul>
 {/if}
@@ -44,10 +48,7 @@
             position: absolute;
             top: 3em;
             right: 0;
-
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            width: max-content;
 
             background-color: white;
             box-shadow: 0 .25em 1em rgba(orange, 0.25);
@@ -63,7 +64,6 @@
 
             border: .15em solid transparent;
             border-radius: .5em;
-            width: max-content;
 
             transform-origin: center right;
 
@@ -79,6 +79,12 @@
             &:active { transform: scale(1) }
 
             &:not(:last-child) { margin-bottom: .5em }
+
+            &.current {
+                pointer-events: none;
+                background-color: #ff3e00;
+                color: white;
+            }
         }
     }
 </style>

@@ -1,4 +1,4 @@
-export default [
+export const politeness = [
     {
         word: "oui",
         answer: "はい"
@@ -100,3 +100,8 @@ export default [
         answer: ["お邪魔します", "おジャマします"]
     },
 ];
+
+export default {
+    list: politeness,
+    ref: "https://www.youtube.com/watch?v=r4-5fXLGySE&t=0s",
+}

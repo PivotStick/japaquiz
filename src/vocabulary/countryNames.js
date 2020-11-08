@@ -1,4 +1,4 @@
-export default [
+export const countryNames = [
     { word: "la France", answer: "フランス" },
     { word: "l'Espagne", answer: "スペイン" },
     { word: "l'Italie", answer: "イタリア" },
@@ -43,3 +43,8 @@ export default [
     { word: "la Corée du Sud", answer: ["韓国", "カンコク"] },
     { word: "le Japon", answer: ["日本", "ニホン", "ニッポン"] },
 ];
+
+export default {
+    list: countryNames,
+    ref: "https://www.youtube.com/watch?v=l7T0cqOlcLk&t=0s",
+}

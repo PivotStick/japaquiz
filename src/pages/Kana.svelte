@@ -13,7 +13,7 @@
         for (const type in kana) {
             if (!filter.includes(type)) continue;
 
-            const chars = kana[type];
+            const chars = kana[type].list;
             result.push(...chars);
         }
         
@@ -21,7 +21,7 @@
     };
 
     const firstKana = Object.keys(kana)[0];
-    characters = kana[firstKana];
+    characters = kana[firstKana].list;
 </script>
 
 <main transition:slide>

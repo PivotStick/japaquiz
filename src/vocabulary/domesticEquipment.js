@@ -1,4 +1,4 @@
-export default [
+export const domesticEquipment = [
     {
         word: "le lit",
         answer: "ベッド"
@@ -88,3 +88,8 @@ export default [
         answer: ["トイレ", "トイレット"]
     },
 ];
+
+export default {
+    list: domesticEquipment,
+    ref: "https://www.youtube.com/watch?v=rSYYeS0xtx4&t=0s",
+}

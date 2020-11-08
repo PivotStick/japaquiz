@@ -1,4 +1,4 @@
-export default [
+export const katakana = [
     { word: "ア",   answer: "a" },
     { word: "イ",   answer: "i" },
     { word: "ウ",   answer: "u" },
@@ -55,4 +55,9 @@ export default [
     { word: "ヲ",   answer: "wo" },
 
     { word: "ン",   answer: "n" },
-]
+];
+
+export default {
+    list: katakana,
+    ref: "https://www.youtube.com/watch?v=xnjpl0mNQOQ&t=0"
+}

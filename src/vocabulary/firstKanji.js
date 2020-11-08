@@ -1,4 +1,4 @@
-export default [
+export const firstKanji = [
     { word: "人", meaning: "Humain", answer: "ひと" },
     { word: "男", meaning: "Homme", answer: "おとこ" },
     { word: "女", meaning: "Femme", answer: "おんな" },
@@ -20,3 +20,8 @@ export default [
     { word: "金", meaning: "Argent, Monnaie", answer: ["かね", "おかね"] },
     { word: "刀", meaning: "Sabre", answer: "かたな" },
 ];
+
+export default {
+    list: firstKanji,
+    ref: "https://www.youtube.com/watch?v=3p16KejjEpo&t=0s",
+}

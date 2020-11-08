@@ -1,4 +1,4 @@
-export default [
+export const numbers = [
     { word: "一", meaning: "1", answer: "イチ" },
     { word: "二", meaning: "2", answer: "ニ" },
     { word: "三", meaning: "3", answer: "サン" },
@@ -12,3 +12,8 @@ export default [
     { word: "百", meaning: "100", answer: "ヒャク" },
     { word: "千", meaning: "1000", answer: "セン" },
 ];
+
+export default {
+    list: numbers,
+    ref: "https://www.youtube.com/watch?v=FZEA66Nj95c&t=0s",
+}

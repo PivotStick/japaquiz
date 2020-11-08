@@ -1,4 +1,4 @@
-export default [
+export const domesticAnimals = [
     { meaning: "le Chien", word: "犬", answer: "いぬ" },
     { meaning: "le Chat", word: "猫", answer: "ねこ" },
     { meaning: "l'oiseau", word: "鳥", answer: "とり" },
@@ -20,3 +20,8 @@ export default [
     { word: "hamster", answer: "ハムスター" },
     { word: "le furet", answer: "フェレット" },
 ];
+
+export default {
+    list: domesticAnimals,
+    ref: "https://www.youtube.com/watch?v=kvSUhd9sWKA&t=0s",
+}

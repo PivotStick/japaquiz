@@ -1,5 +1,5 @@
 export const firstKanji = [
-    { word: "人", meaning: "Humain", answer: "ひと" },
+    { word: "人", meaning: "La Personne", answer: "ひと" },
     { word: "男", meaning: "Homme", answer: "おとこ" },
     { word: "女", meaning: "Femme", answer: "おんな" },
     { word: "子", meaning: "Enfant", answer: "こ" },

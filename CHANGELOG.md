@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.7] - 2020-11-08
+### Added
+- New link in the bottom right
+- The Vocabulary for **Family Members** is now added!
+- The Vocabulary for the **Color Names** is now added!
+
+### Changed
+- Changed **"人"**'s meaning from ***"Homme"*** to ***"La Personne"***.
+- The styles of links has been changed are now in a component (**Links.svelte**)
+
+
 ## [0.0.6] - 2020-11-08
 ### Added
 - There is now link references for every vocabulary and kana

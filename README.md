@@ -1,6 +1,6 @@
 # GITHUBPAGE
 
-[JapaQuizz <3]("https://pivotstick.github.io")
+[JapaQuizz <3](https://pivotstick.github.io/)
 
 # svelte app
 

@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.8] - 2020-12-13
+### Added
+- The input for quizz now autofocus on first join
+
+### Changed
+- New symbols for the filter's links (**❋** & **↩︎**)
+- On click hint now always focus the input
+- Links now have a white background
+
 ## [0.0.7] - 2020-11-08
 ### Added
 - New link in the bottom right

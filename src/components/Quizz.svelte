@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import { scale } from "svelte/transition";
 
     const dispatch = createEventDispatcher();
@@ -35,13 +35,18 @@
         if (shouldFilter)
             userInput = userInput.replace(/[^A-Za-z]/g, "");
     };
-
-    const handleShowHint = () => showHint = !showHint;
-
-    $: {
-        if (input && showHint === false)
+    
+    const focus = () => {
+        if (input)
             input.focus();
-    }
+    };
+
+    const handleShowHint = () => {
+        showHint = !showHint;
+        focus();
+    };
+
+    onMount(focus);
 </script>
 {#if showHint}
 <div transition:scale class="quizz__hint">

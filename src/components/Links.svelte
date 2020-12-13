@@ -51,6 +51,7 @@
             transform-origin: right bottom;
             border: .2em solid #ff3e00;
             color: #ff3e00;
+            background-color: white;
             font-weight: 800;
 
             transition-duration: 200ms;

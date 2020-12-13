@@ -49,7 +49,7 @@
                         class:disabled={ref === ""}
                         target="_blank"
                         href={ref}>
-                        #
+                       ︎ {ref === "" ? "❋" : "↩︎"}
                     </a>
                     <div
                         class="filters__item--button"

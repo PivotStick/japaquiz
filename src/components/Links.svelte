@@ -16,8 +16,8 @@
 <div class="links">
   {#each links as { text, href, emoji }}
     <a class="links__link" target="_blank" {href}>
-      <span>{text}</span>
-      <span class="links__emoji">{emoji}</span>
+      {text}
+      {emoji}
     </a>
   {/each}
 </div>
@@ -35,16 +35,14 @@
 
     // font-size: .75em;
 
-    &__emoji {
-      margin-left: 0.65em;
-    }
-
     &__link {
       box-sizing: border-box;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.65em;
 
       text-decoration: none;
-      padding: 0.4em 2em;
+      padding: 0.5em 1.5em 0.65em;
       padding-right: 0.5em;
       border-radius: 2em;
 

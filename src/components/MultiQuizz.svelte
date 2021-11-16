@@ -1,79 +1,84 @@
 <script>
-    import Button from "./Button.svelte";
-    import History from "./History.svelte";
-    import Quizz from "./Quizz.svelte";
+  import Button from "./Button.svelte";
+  import History from "./History.svelte";
+  import Quizz from "./Quizz.svelte";
 
-    import Score from "./Score.svelte";
+  import Score from "./Score.svelte";
 
-    export let characters = [];
-    export let shouldFilter = true;
-    export let heading = undefined;
+  export let characters = [];
+  export let shouldFilter = true;
+  export let heading = undefined;
 
-    let failCount = 0;
-    let winCount = 0;
-    let answers = [];
-    let isRandom = true;
-    let currentIndex = 0;
+  let bag = [...characters];
 
-    const getRandomCharacter = () => {
-        const randomNumber = Math.random() * (characters.length - 1);
-        const randomIndex = Math.round(randomNumber);
+  let failCount = 0;
+  let winCount = 0;
+  let answers = [];
+  let isRandom = true;
+  let currentIndex = 0;
 
-        return characters[randomIndex];
-    };
+  const getRandomCharacter = () => {
+    if (!bag.length) bag = [...characters];
 
-    const handleAnswer = ({ detail }) => {
-        const { isCorrect } = detail;
+    const randomNumber = Math.random() * (bag.length - 1);
+    const randomIndex = Math.round(randomNumber);
 
-        if (isCorrect) winCount++;
-        else failCount++;
+    const [character] = bag.splice(randomIndex, 1);
+    return character;
+  };
 
-        if (answers.length > 9) answers.pop();
+  const handleAnswer = ({ detail }) => {
+    const { isCorrect } = detail;
 
-        answers = [detail, ...answers];
+    if (isCorrect) winCount++;
+    else failCount++;
 
-        if (!isRandom) {
-            const lastIndex = characters.length - 1;
-            if (++currentIndex > lastIndex) currentIndex = 0;
+    if (answers.length > 9) answers.pop();
 
-            current = characters[currentIndex];
-        } else current = getRandomCharacter();
-    };
+    answers = [detail, ...answers];
 
-    const handleReset = () => {
-        winCount = 0;
-        failCount = 0;
-        answers = [];
-    };
+    if (!isRandom) {
+      const lastIndex = characters.length - 1;
+      if (++currentIndex > lastIndex) currentIndex = 0;
 
-    const handleMode = () => {
-        isRandom = !isRandom;
+      current = characters[currentIndex];
+    } else current = getRandomCharacter();
+  };
 
-        if (!isRandom) {
-            currentIndex = 0;
-            current = characters[currentIndex];
-        } else {
-            current = getRandomCharacter();
-        }
-    };
+  const handleReset = () => {
+    winCount = 0;
+    failCount = 0;
+    answers = [];
+  };
 
-    let current = getRandomCharacter();
+  const handleMode = () => {
+    isRandom = !isRandom;
+
+    if (!isRandom) {
+      currentIndex = 0;
+      current = characters[currentIndex];
+    } else {
+      current = getRandomCharacter();
+    }
+  };
+
+  let current = getRandomCharacter();
 </script>
 
 <div class="btn">
-    <Button on:click={handleMode}>
-        Mode "{isRandom ? "Aléatoire" : "Dans l'Ordre" }"
-    </Button>
+  <Button on:click={handleMode}>
+    Mode "{isRandom ? "Aléatoire" : "Dans l'Ordre"}"
+  </Button>
 </div>
 <Score {winCount} {failCount} on:reset={handleReset} />
 <Quizz on:answer={handleAnswer} {...current} {heading} {shouldFilter} />
 <History data={answers} />
 
 <style lang="scss">
-    .btn {
-        position: fixed;
+  .btn {
+    position: fixed;
 
-        bottom: 1em;
-        left: 1em;
-    }
+    bottom: 1em;
+    left: 1em;
+  }
 </style>

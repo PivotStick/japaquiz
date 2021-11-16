@@ -1,25 +1,24 @@
 {
-    "name": "kanji-to-kana",
-    "version": "1.0.0",
-    "homepage": "https://pivotstick.github.io/japaquiz/",
-    "scripts": {
-        "build": "rollup -c",
-        "dev": "rollup -c -w",
-        "start": "sirv public",
-        "deploy": "git subtree push --prefix public origin gh-pages"
-    },
-    "devDependencies": {
-        "@rollup/plugin-commonjs": "^14.0.0",
-        "@rollup/plugin-node-resolve": "^8.0.0",
-        "rollup": "^2.3.4",
-        "rollup-plugin-livereload": "^2.0.0",
-        "rollup-plugin-svelte": "^6.0.0",
-        "rollup-plugin-terser": "^7.0.0",
-        "svelte": "^3.0.0"
-    },
-    "dependencies": {
-        "svelte-preprocess": "^4.5.2",
-        "node-sass": "^4.14.1",
-        "sirv-cli": "^1.0.0"
-    }
+  "name": "svelte-skeleton",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+    "@tsconfig/svelte": "^2.0.1",
+    "svelte": "^3.37.0",
+    "svelte-check": "^2.1.0",
+    "svelte-preprocess": "^4.7.2",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  },
+  "dependencies": {
+    "sass": "^1.43.4"
+  }
 }

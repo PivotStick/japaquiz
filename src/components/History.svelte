@@ -1,40 +1,42 @@
 <script>
-    import { slide } from "svelte/transition";
-    import Answer from "./Answer.svelte";
+  import { slide } from "svelte/transition";
+  import Answer from "./Answer.svelte";
 
-    export let data;
+  export let data;
 
-    let hidden = true;
+  let hidden = true;
 
-    $: [lastAnswer, ...rest] = data;
+  $: [lastAnswer, ...rest] = data;
 </script>
 
 <Answer hover={false} answer={lastAnswer} />
 {#if data.length > 1}
-<button class="--clickable" transition:slide on:click={() => hidden = !hidden}>
-    {hidden
-        ? "詳細「しょうさい」"
-        : "隠す「かくす」"}
-</button>
+  <button
+    class="--clickable"
+    transition:slide
+    on:click={() => (hidden = !hidden)}
+  >
+    {hidden ? "詳細「しょうさい」" : "隠す「かくす」"}
+  </button>
 {/if}
 {#if !hidden}
-<div>
-{#each rest as answer}
-<Answer answer={answer} />
-{/each}
-</div>
+  <div>
+    {#each rest as answer}
+      <Answer {answer} />
+    {/each}
+  </div>
 {/if}
 
 <style lang="scss">
-    button {
-        cursor: pointer;
+  button {
+    cursor: pointer;
 
-        color: #ff3e00;
-        border: 2px solid currentColor;
+    color: rgb(var(--primary));
+    border: 1px solid currentColor;
 
-        background: none;
-        padding: .5em 2em;
+    background: none;
+    padding: 0.5em 2em;
 
-        margin-top: 2em;
-    }
+    margin-top: 2em;
+  }
 </style>

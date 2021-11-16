@@ -1,30 +1,29 @@
 <button {...$$props} on:click>
-    <slot />
+  <slot />
 </button>
 
 <style lang="scss">
-    button {
-        cursor: pointer;
+  button {
+    cursor: pointer;
 
-        padding: .5em 1em;
-        background-color: rgba(orange, .25);
-        color: #ff3e00;
-        border: .15em solid transparent;
-        border-radius: .5em;
+    padding: 0.5em 1em;
+    background-color: rgba(var(--primary), 0.1);
+    color: rgb(var(--primary));
+    border: 1px solid transparent;
+    border-radius: 0.5em;
 
-        transition: 200ms;
-        transition-property: transform border-color background-color color;
+    transition: 200ms;
+    transition-property: transform, border-color, background-color, color;
 
-        &:hover {
-            background-color: transparent;
-            border-color: #ff3e00;
-            transform: scale(1.1);
-        }
-
-        &:active {
-            transform: scale(1);
-            background-color: #ff3e00;
-            color: white;
-        }
+    &:hover {
+      border-color: rgb(var(--primary));
+      transform: scale(1.1);
     }
+
+    &:active {
+      transform: scale(1);
+      background-color: rgb(var(--primary));
+      color: white;
+    }
+  }
 </style>
